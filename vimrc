@@ -1,14 +1,24 @@
 execute pathogen#infect()
+
+set updatetime=100
+
+" Indent with tabs of size 4
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
-set number
-set relativenumber
-set backspace=indent,eol,start
 
+set number
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" Syntax highlighting
 if !exists("g:syntax_on")
     syntax enable
 endif
+
 filetype plugin indent on
 
 colorscheme codedark
@@ -32,7 +42,7 @@ if ! has('gui_running')
   augroup END
 endif
 
-nmap \ :NERDTreeToggle<CR>
+nmap _ :NERDTreeToggle<CR>
 no <C-j> <C-w>j| "switching to below window
 no <C-k> <C-w>k| "switching to above window
 no <C-l> <C-w>l| "switching to right window
@@ -57,12 +67,6 @@ set runtimepath-=~/.vim/bundle/delimitMate
 augroup nerdtreeclose
 	autocmd!
 	autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-augroup END
-
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 set lazyredraw
