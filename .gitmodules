@@ -4,3 +4,18 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "bundle/vim-code-dark"]
+	path = bundle/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark.git
+[submodule "bundle/spacegray"]
+	path = bundle/spacegray
+	url = https://github.com/ajh17/Spacegray.vim.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "/Users/Matei/.vim/bundle/nerdtree"]
+	path = /Users/Matei/.vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://tpope.io/vim/fugitive.git
