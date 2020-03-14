@@ -1,4 +1,24 @@
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tomasiser/vim-code-dark'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'valloric/youcompleteme'
+
+
+call vundle#end()
+filetype plugin indent on
 
 set updatetime=100
 
@@ -18,8 +38,6 @@ augroup END
 if !exists("g:syntax_on")
     syntax enable
 endif
-
-filetype plugin indent on
 
 colorscheme codedark
 set termguicolors
