@@ -1,6 +1,8 @@
 execute pathogen#infect()
-set number
 set tabstop=4
+set shiftwidth=4
+set noexpandtab
+set number
 set relativenumber
 set backspace=indent,eol,start
 
@@ -43,4 +45,11 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+
+augroup MyAutoCmd
+    autocmd!
+    autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
+augroup END
+
+set runtimepath-=~/.vim/bundle/vimacs
 
