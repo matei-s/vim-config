@@ -31,9 +31,9 @@ if ! has('gui_running')
 endif
 
 nmap \ :NERDTreeToggle<CR>
-no <C-j> <C-w>j| "switching to below window 
+no <C-j> <C-w>j| "switching to below window
 no <C-k> <C-w>k| "switching to above window
-no <C-l> <C-w>l| "switching to right window 
+no <C-l> <C-w>l| "switching to right window
 no <C-h> <C-w>h| "switching to left window
 let NERDTreeShowHidden=1
 
