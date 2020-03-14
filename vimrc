@@ -26,6 +26,7 @@ set updatetime=100
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
+set backspace=indent,eol,start
 
 set number
 augroup numbertoggle
@@ -35,7 +36,7 @@ augroup numbertoggle
 augroup END
 
 " Syntax highlighting
-if !exists("g:syntax_on")
+if !exists('g:syntax_on')
     syntax enable
 endif
 
@@ -74,6 +75,13 @@ let NERDTreeQuitOnOpen = 1
 let g:NERDTreeLimitedSyntax = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+augroup nerdtreeopen
+	autocmd!
+	autocmd StdinReadPre * let s:std_in=1
+	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+augroup END
+
+
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
