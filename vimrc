@@ -37,3 +37,10 @@ no <C-l> <C-w>l| "switching to right window
 no <C-h> <C-w>h| "switching to left window
 let NERDTreeShowHidden=1
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
