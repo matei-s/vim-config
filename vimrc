@@ -38,6 +38,10 @@ no <C-k> <C-w>k| "switching to above window
 no <C-l> <C-w>l| "switching to right window
 no <C-h> <C-w>h| "switching to left window
 let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen = 1
+let g:NERDTreeLimitedSyntax = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -48,20 +52,18 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-augroup MyAutoCmd
-    autocmd!
-    autocmd MyAutoCmd BufWritePost $MYVIMRC nested source $MYVIMRC
+set runtimepath-=~/.vim/bundle/delimitMate
+
+augroup nerdtreeclose
+	autocmd!
+	autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
-set runtimepath-=~/.vim/bundle/vimacs
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END
-
-let NERDTreeQuitOnOpen = 1
-let g:NERDTreeLimitedSyntax = 1
 set lazyredraw
 
