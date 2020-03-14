@@ -41,6 +41,8 @@ let NERDTreeShowHidden=1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
 
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -52,4 +54,14 @@ augroup MyAutoCmd
 augroup END
 
 set runtimepath-=~/.vim/bundle/vimacs
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+let NERDTreeQuitOnOpen = 1
+let g:NERDTreeLimitedSyntax = 1
+set lazyredraw
 
