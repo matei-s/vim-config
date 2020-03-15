@@ -69,7 +69,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:ycm_show_diagnostics_ui = 0
-let g:syntastic_c_checkers = ['gcc', 'make']
+let g:syntastic_c_checkers = ['make']
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 if ! has('gui_running')
@@ -108,8 +108,6 @@ augroup nerdtreeclose
 	autocmd!
 	autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 augroup END
-
-set lazyredraw
 
 let g:comfortable_motion_no_default_key_mappings = 1
 
