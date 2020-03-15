@@ -28,6 +28,8 @@ set shiftwidth=4
 set noexpandtab
 set backspace=indent,eol,start
 
+let mapleader=" "
+
 set number
 augroup numbertoggle
   autocmd!
@@ -65,7 +67,7 @@ if ! has('gui_running')
   augroup END
 endif
 
-nmap _ :NERDTreeToggle<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
 no <C-j> <C-w>j| "switching to below window
 no <C-k> <C-w>k| "switching to above window
 no <C-l> <C-w>l| "switching to right window
