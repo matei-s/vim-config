@@ -1,6 +1,6 @@
 Installation:
 
-	git clone --recurse-submodules git@github.com:matei-s/vim-config.git
+	git clone --recurse-submodules git@github.com:matei-s/vim-config.git .vim
 
 Create symlinks:
 
