@@ -56,8 +56,13 @@ if !exists('g:syntax_on')
 endif
 
 colorscheme codedark
-set termguicolors
 set hlsearch
+
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
