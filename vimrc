@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,7 +20,7 @@ Plugin 'yuttie/comfortable-motion.vim'
 call vundle#end()
 filetype plugin indent on
 
-set updatetime=100
+set updatetime=750
 let mapleader=" "
 
 " Indent with tabs of size 4
@@ -28,6 +28,16 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 set backspace=indent,eol,start
+
+" Search results appear in the middle of the screen
+:set scrolloff=1000
+
+" Cursor line in current window
+augroup CursorLine
+	au!
+	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline | setlocal cursorcolumn
+	au WinLeave * setlocal nocursorline | setlocal nocursorcolumn
+augroup END
 
 nnoremap <silent><Leader>j m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><Leader>k m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
@@ -40,9 +50,9 @@ xnoremap <Leader>p "_dP
 
 set number
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 augroup fixwhitespace
@@ -78,13 +88,14 @@ let g:syntastic_c_checkers = ['make']
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 if ! has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
+	set ttimeoutlen=10
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
 endif
+
 nmap <Leader>t :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen = 1
