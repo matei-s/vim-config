@@ -35,8 +35,8 @@ set backspace=indent,eol,start
 " Cursor line in current window
 augroup CursorLine
 	au!
-	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline | setlocal cursorcolumn
-	au WinLeave * setlocal nocursorline | setlocal nocursorcolumn
+	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	au WinLeave * setlocal nocursorline
 augroup END
 
 nnoremap <silent><Leader>j m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
