@@ -1,3 +1,6 @@
+" Vim configuration file
+
+" VUNDLE CONFIGS START
 set nocompatible
 filetype off
 
@@ -13,14 +16,16 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'valloric/youcompleteme'
 Plugin 'yuttie/comfortable-motion.vim'
 
 call vundle#end()
 filetype plugin indent on
+" VUNDLE CONFIGS END
 
 set updatetime=750
+set ttyfast
 let mapleader=" "
 
 " Indent with tabs of size 4
@@ -31,6 +36,10 @@ set backspace=indent,eol,start
 
 " Search results appear in the middle of the screen
 :set scrolloff=1000
+
+" Strip whitespce on save
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 " Cursor line in current window
 augroup CursorLine
@@ -53,11 +62,6 @@ augroup numbertoggle
 	autocmd!
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
-augroup fixwhitespace
-	autocmd!
-	autocmd BufWrite * :FixWhitespace
 augroup END
 
 " Syntax highlighting
