@@ -24,8 +24,11 @@ call vundle#end()
 filetype plugin indent on
 " VUNDLE CONFIGS END
 
+" Speed settings
+set ttimeoutlen=50
 set updatetime=750
 set ttyfast
+set lazyredraw
 let mapleader=" "
 
 " Indent with tabs of size 4
@@ -35,7 +38,7 @@ set noexpandtab
 set backspace=indent,eol,start
 
 " Search results appear in the middle of the screen
-:set scrolloff=1000
+:set scrolloff=999
 
 " Strip whitespce on save
 let g:strip_whitespace_on_save=1
@@ -84,7 +87,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:ycm_show_diagnostics_ui = 0
@@ -134,6 +137,6 @@ let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(150)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
 
-let g:comfortable_motion_friction = 0.0
-let g:comfortable_motion_air_drag = 4.0
+let g:comfortable_motion_friction = 200.0
+let g:comfortable_motion_air_drag = 0.0
 
