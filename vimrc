@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -61,6 +62,7 @@ nnoremap <Leader>d "_d
 xnoremap <Leader>d "_d
 xnoremap <Leader>p "_dP
 
+" Relative line numbers in normal mode and current window
 set number
 augroup numbertoggle
 	autocmd!
@@ -73,8 +75,12 @@ if !exists('g:syntax_on')
     syntax enable
 endif
 
+" Theme configurations
 set background=dark
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+
+" Highlight search results
 set hlsearch
 
 highlight clear SignColumn
@@ -96,6 +102,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:syntastic_c_checkers = ['make']
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+" Fast escape key
 if ! has('gui_running')
 	set ttimeoutlen=10
 	augroup FastEscape
@@ -105,7 +112,7 @@ if ! has('gui_running')
 	augroup END
 endif
 
-nmap <Leader>t :NERDTreeToggle<CR>
+nmap <Leader>f :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeLimitedSyntax = 1
@@ -117,28 +124,24 @@ augroup nerdtreeopen
 	autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 augroup END
 
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
-
-set runtimepath-=~/.vim/bundle/delimitMate
 
 augroup nerdtreeclose
 	autocmd!
-	autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+  	autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
+" Smooth Scroll custom configs
 let g:comfortable_motion_no_default_key_mappings = 1
-
 nnoremap <silent> <C-d> :call comfortable_motion#flick(150)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-150)<CR>
-
 let g:comfortable_motion_friction = 200.0
 let g:comfortable_motion_air_drag = 0.0
 
