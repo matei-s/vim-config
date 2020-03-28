@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomasiser/vim-code-dark'
+Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -72,7 +73,8 @@ if !exists('g:syntax_on')
     syntax enable
 endif
 
-colorscheme codedark
+set background=dark
+colorscheme gruvbox
 set hlsearch
 
 highlight clear SignColumn
