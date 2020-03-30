@@ -109,7 +109,6 @@ let g:syntastic_cpp_checkers = []
 " Keeping syntastic for python because of pylint
 let g:syntastic_python_checkers = ['pylint']
 
-
 " YouCompleteMe configs
 let g:ycm_show_diagnostics_ui = 1
 let g:ycm_confirm_extra_conf = 0
@@ -121,11 +120,26 @@ let g:ycm_extra_conf_vim_data = [
   \  'g:ycm_python_interpreter_path',
   \  'g:ycm_python_sys_path'
   \]
+let g:ycm_semantic_triggers =  {
+  \   'c': ['->', '.'],
+  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \            're!\[.*\]\s'],
+  \   'ocaml': ['.', '#'],
+  \   'cpp,cuda,objcpp': ['->', '.', '::'],
+  \   'perl': ['->'],
+  \   'php': ['->', '::'],
+  \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,scala,typescript,vb': ['.'],
+  \   'ruby,rust': ['.', '::'],
+  \   'lua': ['.', ':'],
+  \   'erlang': [':'],
+  \   'python': ['.', 'import ']
+  \ }
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/ycm_global_extra_conf.py'
 
 " PythonMode configs
 let g:pymode_syntax = 1
 let g:pylint_lint_checkers = ['pylint']
+let g:pymode_syntax_space_errors = 0
 
 " Fast escape key
 if ! has('gui_running')
