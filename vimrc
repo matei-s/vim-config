@@ -20,6 +20,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'valloric/youcompleteme'
+Plugin 'Valloric/ListToggle'
 Plugin 'yuttie/comfortable-motion.vim'
 
 call vundle#end()
@@ -97,9 +98,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-let g:ycm_show_diagnostics_ui = 0
 let g:syntastic_c_checkers = ['make']
+
+" YouCompleteMe configs
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Fast escape key
