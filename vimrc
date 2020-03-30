@@ -14,13 +14,12 @@ Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'valloric/youcompleteme'
-Plugin 'python-mode/python-mode'
+Plugin 'dense-analysis/ale'
 Plugin 'Valloric/ListToggle'
 Plugin 'yuttie/comfortable-motion.vim'
 
@@ -96,18 +95,17 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" Syntastic configs
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" Trying to see if YCM is better for C/C++
-let g:syntastic_c_checkers = []
-let g:syntastic_cpp_checkers = []
-
-" Keeping syntastic for python because of pylint
-let g:syntastic_python_checkers = ['pylint']
+" ALE configs
+let g:ale_open_list = 1
+let g:ale_linters = {
+ \	'python': ['pylint', 'flake8'],
+ \	'c': [],
+ \	'c++': [],
+ \ }
+augroup CloseLoclistWindowGroup
+	autocmd!
+	autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " YouCompleteMe configs
 let g:ycm_show_diagnostics_ui = 1
