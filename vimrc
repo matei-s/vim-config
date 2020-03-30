@@ -97,6 +97,8 @@ set statusline+=%*
 
 " ALE configs
 let g:ale_open_list = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 1
 let g:ale_linters = {
  \	'python': ['pylint', 'flake8'],
  \	'c': [],
