@@ -20,6 +20,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'valloric/youcompleteme'
+Plugin 'python-mode/python-mode'
 Plugin 'Valloric/ListToggle'
 Plugin 'yuttie/comfortable-motion.vim'
 
@@ -44,6 +45,7 @@ set backspace=indent,eol,start
 :set scrolloff=999
 
 " Strip whitespce on save
+let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
 
@@ -94,6 +96,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Syntastic configs
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
@@ -106,6 +109,10 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/dotfiles/ycm_extra_conf.py'
+
+" PythonMode configs
+let g:pymode_syntax = 1
+let g:pylint_lint_checkers = ['pylint']
 
 " Fast escape key
 if ! has('gui_running')
